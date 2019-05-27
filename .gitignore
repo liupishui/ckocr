@@ -1,6 +1,6 @@
 .DS_Store
 node_modules/
-/example/secret/
+app/example/secret/
 /dist/
 /images/source/
 /images/src/
