@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>study</title>
+    <script>
+        window.nodeRequire = require;
+        delete window.require;
+        delete window.exports;
+        delete window.module;
+    </script>
+</head>
+<body>
+    <img src="./temp.png" alt="">
+    <input type="button" value="刷新" id="refresh-force">
+    <input type="text" id="refresh">
+    <script type="text/javascript" src="./jquery.min.js"></script>
+    <script type="text/javascript">
+        const { ipcRenderer } = nodeRequire('electron');
+        const electron = nodeRequire('electron');
+        $(function(){
+            ipcRenderer.send('documentready', '1');
+            ipcRenderer.on('refresh',function(){
+                $("img").attr('src','./temp.png?t=' + (new Date() - 0));
+            })
+
+            $("#refresh").on('change',function(){
+                console.log($(this).val())
+                if($.trim($(this).val()).length==4){
+                    ipcRenderer.send('reloadChkcode', '1');
+                    $(this).val('')
+                }
+            }).on('keyup',function(event){
+                console.log(event)
+            })
+            //强制刷新
+            $("#refresh-force").click(function(){
+                ipcRenderer.send('reloadChkcode', '1');
+            })
+        });
+    </script>
+</body>
+</html>
