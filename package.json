@@ -1,6 +1,6 @@
 {
-  "name": "ocrcheckcode",
-  "version": "1.0.0",
+  "name": "ckocr",
+  "version": "0.0.1",
   "description": "",
   "main": "app/main.js",
   "scripts": {
@@ -9,8 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^5.0.1",
     "lodash": "^4.17.11",
-    "pixelsmith": "^2.2.1"
+    "get-pixels": "^3.3.2"
+  },
+  "devDependencies": {
+    "electron": "^5.0.1"
   }
 }

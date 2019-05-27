@@ -44,7 +44,7 @@ function loadMainProgram() {
     ipcMain.on('documentready',(event,arg)=>{
         if(!isLoading){
             isLoading = true;
-            downloadImg('http://zxgk.court.gov.cn/zhzxgk/captcha.do?captchaId=bd2fd457ede44d26a018d71a2abf9fc7&random=0.7330692537629279', __dirname + '/temp.png').then((savePath) => {
+            downloadImg('http://***/', __dirname + '/temp.png').then((savePath) => {
                 isLoading = false;
                 ocrcheckcode.getPicCode(savePath, function (dataErzhi,dataHuigui,dataDirection) {
                     dataCurr = dataErzhi;
@@ -73,7 +73,7 @@ function loadMainProgram() {
                 }
             }
 
-            downloadImg('http://zxgk.court.gov.cn/zhzxgk/captcha.do?captchaId=bd2fd457ede44d26a018d71a2abf9fc7&random=0.7330692537629279', __dirname + '/temp.png').then((savePath) => {
+            downloadImg('http://***/', __dirname + '/temp.png').then((savePath) => {
                 isLoading = false;
 
                 ocrcheckcode.getPicCode(savePath, function (dataErzhi, dataHuigui, dataDirection){
