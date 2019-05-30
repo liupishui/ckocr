@@ -5,6 +5,7 @@ ocrcheckcode.getRst(JSON.parse(fs.readFileSync(__dirname + '/jsonStudy.txt', 'ut
                     'http://****/',
                     'http://****/',
                     'http://****/',
+                    __dirname + '/codeCurr.txt',
                     function(code){
                         return {
                             pName: '**',
