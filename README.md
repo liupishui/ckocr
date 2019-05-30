@@ -3,4 +3,4 @@
 
 Install with npm:
 ```
-npm i fastify --save
+npm install ckocr --save
