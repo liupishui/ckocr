@@ -72,6 +72,7 @@ let getPicCode = function (path, callback, errCallback) {
             //console.log(pixels)
             let grayArrayDataX = [];
             let dataRst = '';
+            let dataRstErZhiAll ='';
             for (let h = 0; h < pixels.shape[1]; h++) { //横向灰度信息
                 for (let w = 0; w < pixels.shape[0]; w++) {
                     let colorR = pixels.get(w, h, 0); //红色
@@ -80,10 +81,12 @@ let getPicCode = function (path, callback, errCallback) {
                     let GrayInfo = (125 * colorR + 125 * colorG + 125 * colorB) / 1000
                     if (GrayInfo < 80) {
                         dataRst += "■"
+                        dataRstErZhiAll += 1;
                         grayArrayDataX.push('1');
                         //console.log(grayArrayData)
                     } else {
                         dataRst += "□"
+                        dataRstErZhiAll += 0;
                         grayArrayDataX.push('0');
                         //上下左右都有点则补全
                         //上
@@ -102,6 +105,7 @@ let getPicCode = function (path, callback, errCallback) {
                     // }
                 }
                 dataRst += '\r\n';
+                dataRstErZhiAll += '\r\n';
             }
 
             let grayArray = ndarray(grayArrayDataX, [pixels.shape[1], pixels.shape[0]], [1, 1 * pixels.shape[0], 1], 0); //存储灰度信息;
@@ -322,7 +326,7 @@ let getPicCode = function (path, callback, errCallback) {
                 finalFontsAllInfoDirection.push(fontsAllInfo[i].wordDirectionStr);//方向字符串添加进数组
                 // console.log('111', getHuigui(finalFontsSite));
             }
-            callback(finalFontsAllInfo, finalFontsAllInfoHuigui, finalFontsAllInfoDirection);
+            callback(finalFontsAllInfo, finalFontsAllInfoHuigui, finalFontsAllInfoDirection, dataRstErZhiAll);
             // 分割取特征值
             // 从第一个点取特征值
             //fs.writeFileSync('test.txt', dataRst)
