@@ -29,4 +29,4 @@ ckocr.getPicCode(__dirname + '/jsonStudy.txt',__dirname + '/foo.png').then((word
 })
 ```
 
-jsonStudy.txt是通过getPicCode收集到的（app/example/index.js是个例子）
+jsonStudy.txt是通过getPicCode收集到的（app/example/index.js是个收集验证码特征集例子）
