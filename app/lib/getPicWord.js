@@ -70,7 +70,7 @@ function getPicWord (jsonSudy, picPath,type) {
                                 summaryTop += Number(tempArr[count]||0) && Number(codeCurrArr[count]||0);
                                 // summaryA += tempArr[count] * tempArr[count];//因为0*0=0 1*1=1；所以直接相加
                                 summaryA += Number(tempArr[count]||0);
-                                summaryB += Number(tempArr[count]||0);
+                                summaryB += Number(codeCurrArr[count]||0);
                             }
                             // if(!find){
                             //     find=false;
